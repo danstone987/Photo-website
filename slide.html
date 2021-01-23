@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Dan Stone Photography</title>
+  <script type=text/javascript src="othertools.js"></script>
+  <script type=text/javascript src="gallerytools.js"></script>
+  <script type=text/javascript src="slidetools.js"></script>
+  <script type=text/javascript src="photo.js"></script>
+  <script>
+    var auto = getAutoNumber(0);
+    if (auto > 0)
+    {
+      var next = getNextUrl();
+      if (next !== "")
+      {
+        document.write("<META HTTP-EQUIV=Refresh content='" + auto + "; URL=" + next + "'>");
+      }
+    }
+  </script>
+</head>
+
+<link href="gallery.css" rel="stylesheet" type="text/css" />
+<body class = "body">
+  <script>
+    var imageNumber = getImageNumber(0);
+    var categoryNumber = getCategoryNumber(0);
+    if (imageNumber === 0)
+      imageNumber = getNextImageNumber(categoryNumber, imageNumber);
+    if (imageNumber === 0)
+      imageNumber = 1;
+    var nextImageNumber = getNextImageNumber(categoryNumber, imageNumber);
+    
+    document.title = "Dan Stone Photography - " + getTitle(imageNumber);
+    document.write("<center>");
+    document.write("<table border=1 cellpadding=12 cellspacing=1>");
+    document.write("<tr>");
+    document.write("<td align=center><img src=" + getImageFullFilename(imageNumber) + " alt = \"" + getTitle(imageNumber) + "\"id=\"slideImage\" ></td>");
+    document.write("</tr>");
+    document.write("</table>");
+    document.write("<br>");
+
+    document.write("<table>");
+    document.write("<br>");
+    
+    doArrow(getPreviousImageNumber(categoryNumber, imageNumber), categoryNumber, "previous.gif");
+    document.write("<td width=400 align=center>" + getTitle(imageNumber) + "</td>");
+    doArrow(nextImageNumber, categoryNumber, "next.gif");
+    
+    document.write("</tr>");
+    document.write("</table>");
+
+    document.write("</center>");
+
+    showFooter("thumb.html", "Back To Main Gallery");
+    
+    // Preload next image
+    if (nextImageNumber !== 0)
+    {
+        var nextImage = new Image();
+        var imageFile = getImageFullFilename(nextImageNumber);
+        nextImage.src = imageFile;
+    }
+  </script>
+</body>
+
+</body>
+</html>

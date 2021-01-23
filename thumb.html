@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Dan Stone Photo Gallery</title>
+</head>
+
+<link href="gallery.css" rel="stylesheet" type="text/css" />
+<body class = "body">
+  <script type=text/javascript src="photo.js"></script>
+  <script type=text/javascript src="othertools.js"></script>
+  <script type=text/javascript src="gallerytools.js"></script>
+  <script>
+    document.write("<center>Dan Stone Photo Galleries");
+    document.write("<br><br>Click on a title to see a slide show of images in that gallery,");
+    document.write("<br>or click ");
+    document.write("<a href = slide.html class=\"tooltip\"");
+    
+    document.write(">here<span>Currently" + getNumberOfPhotos() + "&nbsp;images" + "</span></a> to see a slide show of all images.");
+    document.write("</center>");
+    document.write("<center>");
+    document.write("<table border=0 cellpadding=12 cellspacing=1>");
+    
+    var totalCategories = getNumberOfCategories();
+    var totalColumns = 4;
+    var totalRows = ((totalCategories-1) / totalColumns) + 1;
+    
+    var nCategory = 1;
+    var categoryPhotos = getNumberOfPhotosPerCategory();
+    
+    for (var i = 1; i <= totalRows; i++)
+    {
+      document.write("<tr>");
+      for (j = 1; (j <= totalColumns) && (nCategory <= totalCategories); j++)
+      {
+        showThumbnail(getCategoryFilename(nCategory), nCategory, getCategoryName(nCategory), categoryPhotos[nCategory-1]);
+        nCategory++;
+      }
+      document.write("</tr>");
+    }
+    
+    document.write("</table>");
+    document.write("</center>");
+    
+    showFooter("index.html", "Back To Main Page");
+  </script>
+    
+</body>
+</html>
