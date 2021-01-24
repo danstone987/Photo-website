@@ -5,7 +5,7 @@ var imageIndex = 1;
 function setSize()
 {
     var mainImage = document.getElementById("mainImage");
-    resizeImg(mainImage, 500, 250);
+    resizeImg(mainImage, 500, 300);
 }
 
 // now call it when the window is resized.
@@ -41,7 +41,7 @@ function changeMainImage()
     }
     var imageFile = getImageFullFilename(imageIndex);
     var mainImage = document.getElementById("mainImage");
-    resizeImg(mainImage, 500, 250);
+    resizeImg(mainImage, 500, 300);
     mainImage.setAttribute("src", imageFile);
     mainImage.setAttribute("alt", getTitle(imageIndex));
     

@@ -72,7 +72,7 @@ document.addEventListener('keydown', function(event)
 function setSize()
 {
     var slideImage = document.getElementById("slideImage");
-    resizeImg(slideImage, 500, 250);
+    resizeImg(slideImage, 500, 300);
 }
 
 window.onresize = function () 
