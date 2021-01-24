@@ -42,6 +42,11 @@ function buildURL(href, imageNumber, categoryNumber)
     URL = URL +  "&" + autoTag + autoTime;
   return(URL);
 }
+
+function setImageVisible(visible) {
+    var img = document.getElementById("slideImage");
+    img.style.visibility = (visible ? 'visible' : 'hidden');
+}
     
 function getNextUrl()
 {

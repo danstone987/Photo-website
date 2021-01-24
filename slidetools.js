@@ -73,6 +73,7 @@ function setSize()
 {
     var slideImage = document.getElementById("slideImage");
     resizeImg(slideImage, 500, 300);
+	setImageVisible(true);
 }
 
 window.onresize = function () 

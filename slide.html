@@ -53,7 +53,7 @@
     document.write("</center>");
 
     showFooter("thumb.html", "Back To Main Gallery");
-    
+	    
     // Preload next image
     if (nextImageNumber !== 0)
     {
@@ -61,6 +61,7 @@
         var imageFile = getImageFullFilename(nextImageNumber);
         nextImage.src = imageFile;
     }
+	setImageVisible(false);
   </script>
 </body>
 
