@@ -67,7 +67,7 @@ function showFirstImage()
     var imageFile = getImageFullFilename(1);
     mainImage.src = imageFile;
     
-    var newDimensions = getResizeImg(mainImage, 500, 200);
+    var newDimensions = getResizeImg(mainImage, 500, 250);
 
     document.write("<td><a href=\"thumb.html\"><img src=\"photos\\images\\treearchrindge.jpg\" alt=\"Bare Branches\" height = \"" + newDimensions[0] + "\" width = \"" + newDimensions[1] + "\" id=\"mainImage\" border=\"0\" align=\"left\"/></a></td>");
 }

@@ -27,11 +27,11 @@ function detectswipe() {
 		if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y) && (swipe_det.eX > 0)))) {
 		  if(swipe_det.eX > swipe_det.sX) 
 		  {
-			imageNumber = getNextImageNumber(categoryNumber, imageNumber);
+			imageNumber = getPreviousImageNumber(categoryNumber, imageNumber);
 			window.location.href = buildURL("slide.html", imageNumber, categoryNumber);
 		  }
 		  else {
-			imageNumber = getPreviousImageNumber(categoryNumber, imageNumber);
+			imageNumber = getNextImageNumber(categoryNumber, imageNumber);
 			window.location.href = buildURL("slide.html", imageNumber, categoryNumber);
 		  }
 		}
@@ -50,8 +50,6 @@ function detectswipe() {
 	  },false);  
   }
 }
-
-
 
 document.addEventListener('keydown', function(event) 
 {
@@ -74,8 +72,7 @@ document.addEventListener('keydown', function(event)
 function setSize()
 {
     var slideImage = document.getElementById("slideImage");
-    resizeImg(slideImage, 50, 250);
-	detectswipe();
+    resizeImg(slideImage, 500, 250);
 }
 
 window.onresize = function () 
@@ -87,6 +84,7 @@ window.onload = function()
 {
     // prep anything we need to
     setSize();
+    detectswipe();
 };
 
 // Disable right click to prevent saving image
