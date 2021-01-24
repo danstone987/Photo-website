@@ -1,6 +1,6 @@
 "use strict";
 
-function detectswipe(el,func) {
+function detectswipe(el) {
   swipe_det = new Object();
   swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
   var min_x = 30;  //min x swipe for horizontal swipe
@@ -47,6 +47,8 @@ function detectswipe(el,func) {
     swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
   },false);  
 }
+
+detectswipe('slideImage');
 
 document.addEventListener('keydown', function(event) 
 {
